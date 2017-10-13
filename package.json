@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-apps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desouky95/nodejs-apps.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/desouky95/nodejs-apps/issues"
+  },
+  "homepage": "https://github.com/desouky95/nodejs-apps#readme"
+}
