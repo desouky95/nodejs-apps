@@ -20,6 +20,11 @@ app.get('/contact', function(req, res) {
     res.render('contact.html');
 });
 
+app.get('/download', function(req, res){
+  var file = __dirname + '/music/Stay.m4a';
+  res.download(file); // Set disposition and send it.
+});
+
 app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
 });
