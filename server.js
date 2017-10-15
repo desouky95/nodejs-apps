@@ -1,9 +1,6 @@
 var express = require('express');
 var app = express();
-var nodemailer = require('nodemailer');
-var smtpTransport = require('nodemailer-smtp-transport');
-var bodyParser = require('body-parser');
-var urlencodedParser = bodyParser.urlencoded({ extended: true });
+
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -29,36 +26,6 @@ app.get('/download', function(req, res){
   res.download(file); // Set disposition and send it.
 });
 
-app.get( '/send',urlencodedParser,function(req,res){
-var name = req.query.name;
-var email = req.query.email;
-var tel = req.query.telephone;
-var content = 'Request Send From : ' + name + ' and his/her telephone number : ' + tel + '\n' + req.query.content;
-var transporter = nodemailer.createTransport(smtpTransport({
-  service: 'gmail',
-  auth: {
-    user: 'tubesniper@gmail.com',
-    pass: 'ismail0100929164'
-  }
-}));
-
-var mailOptions = {
-  from: email,
-  to: 'tubesniper@gmail.com',
-  subject: 'Hire request',
-  text: content
-};
-
-transporter.sendMail(mailOptions, function(error, info){
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Email sent: ' + info.response);
-  }
-});
-
-res.redirect('/');
-});
 
 
 app.listen(port, function() {
