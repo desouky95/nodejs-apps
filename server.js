@@ -24,6 +24,23 @@ app.use(express.static(__dirname + '/public'));
 // set the home page route
 
 
+
+
+app.get('/', function(req, res) {
+
+    res.render('index.html');
+});
+
+
+app.get('/contact', function(req, res) {
+    res.render('contact.html');
+});
+
+app.get('/download', function(req, res){
+  var file = __dirname + '/public/music/i_don_t Know_why.m4a';
+  res.download(file); // Set disposition and send it.
+});
+
 app.get( '/send',urlencodedParser,function(req,res){
 var name = req.query.name;
 var email = req.query.email;
@@ -55,21 +72,6 @@ transporter.sendMail(mailOptions, function(error, info){
 res.redirect('/');
 });
 
-
-app.get('/', function(req, res) {
-
-    res.render('index.html');
-});
-
-
-app.get('/contact', function(req, res) {
-    res.render('contact.html');
-});
-
-app.get('/download', function(req, res){
-  var file = __dirname + '/public/music/i_don_t Know_why.m4a';
-  res.download(file); // Set disposition and send it.
-});
 
 app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
