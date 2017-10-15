@@ -13,6 +13,9 @@ var urlencodedParser = bodyParser.urlencoded({ extended: true });
 var port = process.env.PORT || 8080;
 
 
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
+});
 
 // set the view engine to ejs
 app.engine('html', require('ejs').renderFile);
@@ -70,9 +73,4 @@ transporter.sendMail(mailOptions, function(error, info){
 });
 
 res.redirect('/');
-});
-
-
-app.listen(port, function() {
-    console.log('Our app is running on http://localhost:' + port);
 });
